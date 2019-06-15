@@ -1,0 +1,38 @@
+{
+  "name": "gwn",
+  "description": "gwn",
+  "version": "0.0.1",
+  "author": {
+    "email": "zac@zacanger.com",
+    "name": "Zac Anger",
+    "url": "https://zacanger.com"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "preversion": "sortpack && npm t",
+    "test": "npm run test:lint && npm run test:tape",
+    "test:lint": "standard",
+    "test:tape": "tape test.js"
+  },
+  "homepage": "https://github.com/zacanger/gwn#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zacanger/gwn.git"
+  },
+  "bugs": "https://github.com/zacanger/gwn/issues",
+  "keywords": [
+    "",
+    "gwn"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "sortpack": "1.2.0",
+    "standard": "12.0.1",
+    "tape": "4.10.2"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
