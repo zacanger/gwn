@@ -1,5 +1,9 @@
 # gwn
 
+WIP
+
+Like GitWeb, but Node
+
 --------
 
 ## Installation
