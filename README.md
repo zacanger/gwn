@@ -6,6 +6,10 @@ Like GitWeb, but Node
 
 --------
 
+Initial code based on
+[this project](https://github.com/timboudreau/gittattle),
+but I'mma have to rewrite it all.
+
 ## Why?
 
 * What's wrong with GitWeb?
