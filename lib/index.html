@@ -1,9 +1,8 @@
 <!doctype html>
 <html>
 <head>
-  <!-- TODO: get rid of angular, at least
-    maybe also get rid of jquery and bootstrap
-    really, maybe just SSR this
+  <!-- TODO: get rid of angular and bootstrap
+    also maybe just SSR this
   -->
   <title>GWN</title>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
@@ -48,8 +47,8 @@
       bottom: 0em;
       z-index: 1;
       background-color: rgba(100,100,50, 0.5);
-      /*background-color: black;*/
     }
+
     .sourcepopup {
       overflow: auto;
       position: fixed;
@@ -63,27 +62,6 @@
       margin-right: 1em;
     }
 
-    .errorBox {
-      position: fixed;
-      top: 5em;
-      right: 5em;
-      background-color: rgba(100, 20, 20, 0.5);
-      color: white;
-      -webkit-border-radius: 0.5em;
-      -moz-border-radius: 0.5em;
-      border-radius: 0.5em;
-      border: 1em solid rgba(100, 20, 20, 0.5);
-      min-width: 250px;
-      min-height: 2em;
-    }
-
-    .ng-cloak {
-      display: none;
-    }
-    .ng-uncloak {
-      text-align: center;
-      width: 100%;
-    }
     .table-striped>tbody>tr:nth-child(odd)>th  {
       background-color: rgba(20, 20, 20, 0.05);
     }
@@ -97,19 +75,11 @@
 </head>
 <body ng-app="gittattle">
   <div class="main">
-    <div class="errorBox ng-cloak" ng-show="error">
-      <div class="warning"><b>Error</b>&nbsp;&nbsp;<a href="#" ng-click="error = null" class="pull-right" stop-event="click">x</a>
-        <br/>
-        This is a warning</div>
-    </div>
     <div class="container-fluid" ng-controller="Ctrllr">
       <div class="row-fluid"><h1 class="span12">GitWeb Node</h1></div>
-      <div class="ng-uncloak" id="loading" ng-show="!initialized">...loading...
-        <br/>
-      </div>
       <div class="row-fluid">
         <div class="span12">
-          <table class="ng-cloak table table-striped" ng-controller="FilesAndCommits">
+          <table class="table table-striped" ng-controller="FilesAndCommits">
             <tr ng-repeat="repo in repos">
               <th class="span1" ng-click="toggle(repo)" stop-event="click">{{repo.name}}</th>
               <th class="span4" ng-click="toggle(repo)" stop-event="click">{{repo.description}}</th>
@@ -133,7 +103,7 @@
                       <td>{{commit.age}}</td>
                       <td>{{commit.date| date}}</td>
                       <td ng-show="contentVisible">
-                        <div class="ng-cloak sourcefade" ng-click="contentVisible = false" stop-event="click">
+                        <div class="sourcefade" ng-click="contentVisible = false" stop-event="click">
                           <div class="sourcehead" ng-click="contentVisible = true" stop-event="click">
                             <table>
                               <tr>
@@ -156,7 +126,7 @@
                       <td>{{file.length}}</td>
                       <td><a href="./{{repo.id}}/get/{{file.path}}?raw=true" target="dl">Raw</a></td>
                       <td ng-show="contentVisible">
-                        <div class="ng-cloak sourcefade" ng-click="contentVisible = false" stop-event="click">
+                        <div class="sourcefade" ng-click="contentVisible = false" stop-event="click">
                           <div class="sourcehead" ng-click="contentVisible = true" stop-event="click">
                             <table>
                               <tr>
@@ -184,84 +154,79 @@
     </div>
   </div>
 
-  <script src="//codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
 var app = angular.module('gittattle', []);
 app.directive('stopEvent', function () {
   return {
     restrict: 'A',
     link: function (scope, element, attr) {
-      element.bind(attr.stopEvent, function (e) {
-        e.preventDefault();
-      });
+      element.bind(attr.stopEvent, (e) => {
+        e.preventDefault()
+      })
     }
-  };
-});
-app.directive('source', function($http) {
+  }
+})
+
+app.directive('source', function ($http) {
   return {
     replace: true,
     restrict: 'A',
     scope: false,
-    link: function(scope, iElement, iAttrs) {
-      var out = angular.element('<pre class="sourcepopup"></pre>');
-      iElement.parent().append(out);
-      iElement.css('display', 'none');
-      var content = '...loading ' + iAttrs.repo + " " + (iAttrs.path ? iAttrs.path : iAttrs.source) + "...";
-      var orig = content;
+    link: function (scope, iElement, iAttrs) {
+      var out = angular.element('<pre class="sourcepopup"></pre>')
+      iElement.parent().append(out)
+      iElement.css('display', 'none')
+      var content = '...loading ' + iAttrs.repo + " " + (iAttrs.path ? iAttrs.path : iAttrs.source) + "..."
+      var orig = content
 
-      function url() {
+      function url () {
         if (iAttrs.path) {
-          return './' + iAttrs.repo + '/get/' + iAttrs.path;
+          return './' + iAttrs.repo + '/get/' + iAttrs.path
         } else {
-          return './' + iAttrs.repo + '/' + iAttrs.source;
+          return './' + iAttrs.repo + '/' + iAttrs.source
         }
       }
 
       out.css('display', 'none')
-      out.text(content);
-      scope.$watch('contentVisible', function() {
+      out.text(content)
+      scope.$watch('contentVisible', () => {
         if (scope.contentVisible) {
           out.css('display', 'block')
           if (content === orig) {
-            $http.get(url()).success(function(data) {
-              // XXX JSON files are coming up as [Object object] -
-              // figure out how to specify text only here instead
+            $http.get(url()).success((data) => {
               if (typeof data === 'object') {
                 data = JSON.stringify(data)
               }
-              content = data;
-              iElement.parent().append(out);
-              out.text(data);
-            }).error(function(err) {
+              content = data
+              iElement.parent().append(out)
+              out.text(data)
+            }).error((err) => {
               out.text(err)
-            });
+            })
           }
         } else {
           out.css('display', 'none')
-          out.text(content);
+          out.text(content)
         }
-      });
-    }
-  };
-});
-
-function Ctrllr($scope, $http) {
-  $http.get('./list').success(function(dta) {
-    if (typeof dta['forEach'] === 'function') {
-      dta.forEach(function(repo) {
-        repo.expanded = false;
       })
-      $scope.repos = dta;
-    } else {
-      $scope.error = dta;
     }
-    $scope.initialized=true;
-  }).error(function(err, status) {
-    $scope.error = err || status;
-    $scope.initialized=true;
-  });
+  }
+})
+
+function Ctrllr ($scope, $http) {
+  $http.get('./list').success((dta) => {
+    if (typeof dta['forEach'] === 'function') {
+      dta.forEach((repo) => {
+        repo.expanded = false
+      })
+      $scope.repos = dta
+    } else {
+      console.error(dta)
+    }
+  }).error((err, status) => {
+    console.error(err || status)
+  })
 }
 
 var dummyCommit = {
@@ -272,76 +237,69 @@ var dummyCommit = {
   path: '...loading file list...'
 }
 
-function FilesAndCommits($scope, $http) {
-  $scope.commitTabActive = true;
-  $scope.commmits = [dummyCommit];
-  $scope.files = [dummyCommit];
+function FilesAndCommits ($scope, $http) {
+  $scope.commitTabActive = true
+  $scope.commmits = [dummyCommit]
+  $scope.files = [dummyCommit]
 
-  $scope.commitsSelected = function() {
-    $scope.commitTabActive = true;
-    loadCommits();
+  $scope.commitsSelected = () => {
+    $scope.commitTabActive = true
+    loadCommits()
   }
 
-  $scope.filesSelected = function() {
-    $scope.commitTabActive = false;
-    loadFiles();
+  $scope.filesSelected = () => {
+    $scope.commitTabActive = false
+    loadFiles()
   }
 
-  $scope.toggle = function(repo) {
-    $scope.commits = [dummyCommit];
-    $scope.files = [dummyCommit];
-    $scope.error = null;
-    $scope.repo = repo;
-    $scope.repos.forEach(function(r) {
+  $scope.toggle = (repo) => {
+    $scope.commits = [dummyCommit]
+    $scope.files = [dummyCommit]
+    $scope.repo = repo
+    $scope.repos.forEach((r) => {
       if (r !== repo) {
-        r.expanded = false;
+        r.expanded = false
       }
     })
-    repo.expanded = !repo.expanded;
-    $scope.commitTabActive = true;
-    loadCommits();
+    repo.expanded = !repo.expanded
+    $scope.commitTabActive = true
+    loadCommits()
   }
 
-  function needLoad(arr) {
+  function needLoad (arr) {
     if (typeof arr !== 'undefined' && typeof arr !== 'undefined') {
-      if (arr.length === 0)
-        return true;
-      if (arr.length === 1) {
-        return arr[0] === dummyCommit;
-      }
+      if (arr.length === 0) return true
+      if (arr.length === 1) return arr[0] === dummyCommit
     } else {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
-  function loadCommits() {
+  function loadCommits () {
     if (needLoad($scope.commits)) {
-      $scope.error = null;
+      $scope.commits = [dummyCommit]
 
-      $scope.commits = [dummyCommit];
-
-      $http.get('./' + $scope.repo.id).success(function(log) {
-        log.forEach(function(cmt) {
+      $http.get('./' + $scope.repo.id).success((log) => {
+        log.forEach((cmt) => {
           if (typeof cmt.date === 'string') {
-            cmt.date = new Date(Date.parse(cmt.date));
+            cmt.date = new Date(Date.parse(cmt.date))
           }
         })
-        $scope.commits = log;
-      }).error(function(err, status) {
-        $scope.error = err || status;
-      });
+        $scope.commits = log
+      }).error((err, status) => {
+        console.error(err || status)
+      })
     }
   }
 
-  function loadFiles() {
+  function loadFiles () {
     if (needLoad($scope.files)) {
-      $scope.error = null;
-      $http.get('./' + $scope.repo.id + '/list').success(function(files) {
-        $scope.files = files;
-      }).error(function(err, status) {
-        $scope.error = err || status;
-      });
+      $http.get('./' + $scope.repo.id + '/list').success((files) => {
+        $scope.files = files
+      }).error((err, status) => {
+        console.error(err || status)
+      })
     }
   }
 }
