@@ -4,6 +4,8 @@ WIP
 
 Like GitWeb, but Node
 
+[![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn)
+
 --------
 
 ## Why?
@@ -40,7 +42,7 @@ gwn -r ~/dev -p 8000
 
 `docker run -it -p 9999:9999 -v /path/to/repos:/repos zacanger/gwn`
 
-Check out the [repo](hub.docker.com/r/zacanger/gwn).
+Check out the [repo](https://hub.docker.com/r/zacanger/gwn).
 
 ## TODO
 
