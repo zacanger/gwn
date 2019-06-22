@@ -6,10 +6,6 @@ Like GitWeb, but Node
 
 --------
 
-Initial code based on
-[this project](https://github.com/timboudreau/gittattle),
-but I'mma have to rewrite it all.
-
 ## Why?
 
 * What's wrong with GitWeb?
@@ -30,18 +26,24 @@ the time I found it I'd already decided to write my own.
 
 `npm i -g gwn`
 
-TODO: Docker
-
 ## Usage
 
-TODO
+```shell
+gwn -r path-to-repos-root -p port
+# example
+gwn -r ~/dev -p 8000
+# root defaults to cwd
+# port defaults to 9999
+```
 
 ## TODO
 
-* Write any of the code
-* Make it do things
-* Usage docs
+* Make it good (see TODOs in the code)
 * Dockerfile, Docker docs, get it up on Docker Hub
+
+## Credits
+
+Initial code based on [this project](https://github.com/timboudreau/gittattle).
 
 ## License
 

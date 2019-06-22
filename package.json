@@ -11,7 +11,8 @@
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
-    "start": "nodemon",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "preversion": "sortpack && npm t",
     "test": "npm run test:lint",
     "_test": "npm run test:lint && npm run test:tape",
@@ -32,7 +33,12 @@
     "ui"
   ],
   "dependencies": {
+    "compression": "1.7.4",
+    "express": "4.17.1",
+    "helmet": "3.18.0",
+    "minimist": "1.2.0",
     "nodemon": "1.19.1",
+    "url-parse": "1.4.7",
     "zeelib": "8.6.0"
   },
   "devDependencies": {
