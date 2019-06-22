@@ -5,7 +5,7 @@ const http = require('http')
 const opts = {
   host: 'localhost',
   port: 9999,
-  timeout: 1000,
+  timeout: 1000
 }
 
 const request = http.request(opts, (res) => {
