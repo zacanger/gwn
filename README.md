@@ -36,10 +36,15 @@ gwn -r ~/dev -p 8000
 # port defaults to 9999
 ```
 
+## Docker
+
+`docker run -it -p 9999:9999 -v /path/to/repos:/repos zacanger/gwn`
+
+Check out the [repo](hub.docker.com/r/zacanger/gwn).
+
 ## TODO
 
 * Make it good (see TODOs in the code)
-* Dockerfile, Docker docs, get it up on Docker Hub
 
 ## Credits
 
