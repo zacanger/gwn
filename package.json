@@ -1,7 +1,7 @@
 {
   "name": "gwn",
   "description": "Like GitWeb, but Node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "email": "zac@zacanger.com",
     "name": "Zac Anger",
@@ -11,11 +11,11 @@
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "preversion": "sortpack && npm t",
-    "test": "npm run test:lint",
     "_test": "npm run test:lint && npm run test:tape",
+    "dev": "nodemon index.js",
+    "preversion": "sortpack && npm t",
+    "start": "node index.js",
+    "test": "npm run test:lint",
     "test:lint": "standard",
     "test:tape": "tape test.js"
   },
@@ -26,11 +26,11 @@
   },
   "bugs": "https://github.com/zacanger/gwn/issues",
   "keywords": [
-    "gitweb",
     "cgit",
     "git",
-    "web",
-    "ui"
+    "gitweb",
+    "ui",
+    "web"
   ],
   "dependencies": {
     "compression": "1.7.4",
