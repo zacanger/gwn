@@ -4,25 +4,9 @@ WIP
 
 Like GitWeb, but Node
 
-[![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn)
+[![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn) ![Docker Pulls](https://img.shields.io/docker/pulls/zacanger/gwn.svg)
 
 --------
-
-## Why?
-
-* What's wrong with GitWeb?
-  * It's written in Perl which is great if you like Perl and not so great if you
-    don't. Also it expects to be behind Apache.
-* What's wrong with cgit?
-  * It's written in C which is greate if you like C and not so great if you
-    don't. Also it expects to be behind Apache.
-
-I wanted a simple, read-only Git repository viewer written in a language I like.
-I like a lot of languages, but I especially like working in Node.
-
-[Klaus](https://github.com/jonashaag/klaus) is pretty close to what I was
-looking for (small, read-only, simple, written in a pleasant language), but by
-the time I found it I'd already decided to write my own.
 
 ## Installation
 
@@ -44,13 +28,23 @@ gwn -r ~/dev -p 8000
 
 Check out the [repo](https://hub.docker.com/r/zacanger/gwn).
 
+## Alternatives
+
+* [GitWeb](https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb) — it's built
+  in, but it's a CGI script written in Perl, which is not a language I love.
+* [cgit](https://git.zx2c4.com/cgit/) — fast, but still quite complicated, and
+  written in C, which is not very approachable.
+* [Klaus](https://github.com/jonashaag/klaus) — simple, written in a good
+  language (Python), well-maintained. If I didn't want to write my own, I'd be
+  using this.
+
 ## TODO
 
-* Make it good (see TODOs in the code)
+* Make it good (see all the TODOs in the code)
 
 ## Credits
 
-Initial code based on [this project](https://github.com/timboudreau/gittattle).
+Some code based on [this project](https://github.com/timboudreau/gittattle).
 
 ## License
 
