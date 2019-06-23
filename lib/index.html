@@ -76,9 +76,10 @@
 <body ng-app="gittattle">
   <div class="main">
     <div class="container-fluid" ng-controller="Ctrllr">
-      <div class="row-fluid"><h1 class="span12">GitWeb Node</h1></div>
+      <div class="row-fluid"><a href="/"><h1 class="span12">GitWeb Node</h1></a></div>
       <div class="row-fluid">
         <div class="span12">
+
           <table class="table table-striped" ng-controller="FilesAndCommits">
             <tr ng-repeat="repo in repos">
               <th class="span1" ng-click="toggle(repo)" stop-event="click">{{repo.name}}</th>
@@ -95,6 +96,7 @@
                     <a href="#">Files <span class="badge" ng-show="files && files.length > 1">{{files.length}}</span></a>
                   </li>
                 </ul>
+
                 <table class="innerTable" ng-show="commitTabActive">
                   <tbody>
                     <tr ng-repeat="commit in commits">
@@ -105,48 +107,57 @@
                       <td ng-show="contentVisible">
                         <div class="sourcefade" ng-click="contentVisible = false" stop-event="click">
                           <div class="sourcehead" ng-click="contentVisible = true" stop-event="click">
+
                             <table>
                               <tr>
                                 <td><h1>{{repo.name}} {{commit.hash}}</h1><i>{{commit.author}}, {{commit.date| date}}</i></td>
                                 <td><button class="btn btn-primary pull-right" ng-click="contentVisible = false" stop-event="click">Close</button></td>
                               </tr>
                             </table>
+
                             <pre class="sourcepopup" source="{{commit.hash}}" repo="{{repo.id}}">...loading...</pre>
+
                           </div>
                         </div>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+
                 <table class="innerTable" ng-hide="commitTabActive">
                   <tbody>
                     <tr ng-repeat="file in files">
                       <td>{{file.type}}</td>
                       <th ng-click="contentVisible = !contentVisible" stop-event="click">{{file.path}}</th>
                       <td>{{file.length}}</td>
-                      <td><a href="/api/{{repo.id}}/get/{{file.path}}?raw=true" target="dl">Raw</a></td>
+                      <td><a href="/-/api/{{repo.id}}/get/{{file.path}}?raw=true" target="dl">Raw</a></td>
                       <td ng-show="contentVisible">
                         <div class="sourcefade" ng-click="contentVisible = false" stop-event="click">
                           <div class="sourcehead" ng-click="contentVisible = true" stop-event="click">
+
                             <table>
                               <tr>
                                 <td><h1>{{repo.name}} {{file.path}}</h1><i></i></td>
                                 <td><button class="btn btn-primary pull-right" ng-click="contentVisible = false" stop-event="click">Close</button></td>
                               </tr>
                             </table>
+
                             <pre ng-show="contentVisible && files" class="sourcepopup" source="true" path="{{file.path}}" repo="{{repo.id}}">...loading...</pre>
+
                           </div>
                         </div>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+
               </td>
               <td>
-                <a href="/api/{{repo.id}}.zip">zip</a>
+                <a href="/-/api/{{repo.id}}.zip">zip</a>
               </td>
             </tr>
           </table>
+
         </div>
       </div>
     </div>
@@ -180,9 +191,9 @@ app.directive('source', function ($http) {
 
       function url () {
         if (iAttrs.path) {
-          return '/api/' + iAttrs.repo + '/get/' + iAttrs.path
+          return '/-/api/' + iAttrs.repo + '/get/' + iAttrs.path
         } else {
-          return '/api/' + iAttrs.repo + '/' + iAttrs.source
+          return '/-/api/' + iAttrs.repo + '/' + iAttrs.source
         }
       }
 
@@ -213,7 +224,7 @@ app.directive('source', function ($http) {
 })
 
 function Ctrllr ($scope, $http) {
-  $http.get('/api/list').success((dta) => {
+  $http.get('/-/api/list').success((dta) => {
     if (typeof dta['forEach'] === 'function') {
       dta.forEach((repo) => {
         repo.expanded = false
@@ -278,7 +289,7 @@ function FilesAndCommits ($scope, $http) {
     if (needLoad($scope.commits)) {
       $scope.commits = [dummyCommit]
 
-      $http.get('/api/' + $scope.repo.id).success((log) => {
+      $http.get('/-/api/' + $scope.repo.id).success((log) => {
         log.forEach((cmt) => {
           if (typeof cmt.date === 'string') {
             cmt.date = new Date(Date.parse(cmt.date))
@@ -293,7 +304,7 @@ function FilesAndCommits ($scope, $http) {
 
   function loadFiles () {
     if (needLoad($scope.files)) {
-      $http.get('/api/' + $scope.repo.id + '/list').success((files) => {
+      $http.get('/-/api/' + $scope.repo.id + '/list').success((files) => {
         $scope.files = files
       }).error((err, status) => {
         console.error(err || status)
