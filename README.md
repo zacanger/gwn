@@ -42,8 +42,7 @@ Check out the [repo](https://hub.docker.com/r/zacanger/gwn).
 
 * Refactor all the code, most of it is janky
 * Branch and tag support
-* Make it look good
-* Handle commit logs longer than n (currently 50)
+* Handle commit logs longer than n (currently 100)
 * Use something like [Isomorphic git](https://github.com/isomorphic-git/isomorphic-git) or [Git-JS](https://github.com/steveukx/git-js) to do the actual git work, rather than execing all over the place
 
 ## Credits

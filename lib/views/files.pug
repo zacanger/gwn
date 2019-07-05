@@ -1,7 +1,6 @@
 doctype html
 html
-  head
-    title= repo
+  include head.pug
   body
     h1
       a(href='/') GWN
@@ -13,4 +12,5 @@ html
         li
           span
             a(href=`/-/api/${repo}/get/${f.path}?raw=true`)= f.path
-            span #{f.type}
+            span  &mdash;
+            code= f.type

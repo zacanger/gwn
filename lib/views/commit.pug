@@ -1,12 +1,11 @@
 doctype html
 html
-  head
-    title= repo
+  include head.pug
   body
     h1
       a(href='/') GWN
     h2
       a(href=`/${repo}`)= repo
-    h3 #{repo} - #{hash}
+    h3 #{repo} &mdash; #{hash}
     pre= commit
 
