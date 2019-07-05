@@ -29,9 +29,9 @@ html {
 body {
   font-size: 1.5em;
   font-weight: 400;
-  font-family: Merriweather, Cardo, serif;
-  color: #303330;
-  background: #fff;
+  font-family: sans-serif;
+  color: #dcdcdc;
+  background: #101010;
   padding: 1rem;
   max-width: 900px;
   line-height: 1.6;
@@ -40,9 +40,6 @@ body {
 li, ul {
   margin: 0;
   padding: 0
-}
-ul {
-  margin-left: 2rem
 }
 footer {
   margin-top: 2rem
@@ -55,34 +52,19 @@ h1 {
   font-size: 2.5rem;
   line-height: 1.2
 }
-a, a:link, a:visited {
-  transition: color .2s ease-in-out;
-  color: #265c83
+a, a:link {
+  color: #5bdd54;
 }
-a:hover {
-  color: #7fdbff
+a:visited {
+  color: #548c51;
 }
-a:active {
-  transition: color .2s ease-in-out;
-  color: #007be6
+a:hover, a:active {
+  color: #a4e5a0;
 }
 ul {
-  list-style: circle inside;
-  padding-left: 1rem;
-  margin-top: 0
-}
-ul ul {
-  margin: 1.5rem 0 1.5rem 3rem;
-  font-size: 80%
-}
-li ul {
-  margin-bottom: 0
+  list-style: none;
+  margin-top: 1rem;
 }
 p {
   margin-top: 1rem
-}
-@media (max-width: 767px) {
-  x:-moz-any-link {
-    display: table-cell
-  }
 }
