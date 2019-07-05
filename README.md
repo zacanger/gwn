@@ -2,7 +2,8 @@
 
 Like GitWeb, but Node
 
-[![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn) ![Docker Pulls](https://img.shields.io/docker/pulls/zacanger/gwn.svg)
+[![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn) [![Docker
+Pulls](https://img.shields.io/docker/pulls/zacanger/gwn.svg)](https://hub.docker.com/r/zacanger/gwn)
 
 ![screenshot](/screenshot.png?raw=true)
 
