@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= repo
+  body
+    h1
+      a(href='/') GWN
+    h2
+      a(href=`/${repo}`)= repo
+    a(href=`/${repo}/files`) files
+    br
+    a(href=`/-/api/${repo}.zip`) zip
+    ul
+      each c in commits
+        li
+          a(href=`/${repo}/commit/${c.hash}`)
+            span #{c.author} - #{c.message} - #{c.date}

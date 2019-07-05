@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title gwn
+  body
+    h1
+      a(href='/') GWN
+    ul
+      each r in repos
+        li
+          a(href=r.name)
+            span #{r.name} - #{r.message} - #{r.author} - #{r.age}

@@ -35,13 +35,16 @@
   "dependencies": {
     "compression": "1.7.4",
     "express": "4.17.1",
+    "fetchyeah": "2.1.3",
     "helmet": "3.18.0",
     "is-docker": "2.0.0",
+    "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.11",
     "minimist": "1.2.0",
     "nodemon": "1.19.1",
+    "pug": "2.0.4",
     "url-parse": "1.4.7",
-    "zeelib": "8.6.1"
+    "zeelib": "9.0.1"
   },
   "devDependencies": {
     "sortpack": "1.2.0",

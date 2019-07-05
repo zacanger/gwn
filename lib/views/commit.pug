@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= repo
+  body
+    h1
+      a(href='/') GWN
+    h2
+      a(href=`/${repo}`)= repo
+    h3 #{repo} - #{hash}
+    pre= commit
+

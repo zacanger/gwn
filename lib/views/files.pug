@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= repo
+  body
+    h1
+      a(href='/') GWN
+    h2
+      a(href=`/${repo}`)= repo
+    a(href=`/${repo}/${files}`)
+    ul
+      each f in files
+        li
+          span
+            a(href=`/-/api/${repo}/get/${f.path}?raw=true`)= f.path
+            span #{f.type}
