@@ -43,6 +43,7 @@ Check out the [repo](https://hub.docker.com/r/zacanger/gwn).
 * Refactor all the code, most of it is janky
 * Branch and tag support
 * Make it look good
+* Handle commit logs longer than n (currently 50)
 
 ## Credits
 
