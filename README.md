@@ -40,7 +40,9 @@ Check out the [repo](https://hub.docker.com/r/zacanger/gwn).
 
 ## TODO
 
-* Make it good (see all the TODOs in the code)
+* Refactor all the code, most of it is janky
+* Branch and tag support
+* Make it look good
 
 ## Credits
 
