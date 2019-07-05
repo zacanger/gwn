@@ -1,10 +1,10 @@
 # gwn
 
-WIP
-
 Like GitWeb, but Node
 
 [![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn) ![Docker Pulls](https://img.shields.io/docker/pulls/zacanger/gwn.svg)
+
+![screenshot](/screenshot.png?raw=true)
 
 --------
 
