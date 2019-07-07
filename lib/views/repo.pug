@@ -9,6 +9,10 @@ html
     a(href=`/${repo}/files`) files
     span &nbsp;&middot;&nbsp;
     a(href=`/-/api/${repo}.zip`) zip
+    br
+    a(href=`/${repo}?skip=${prev}`) newer
+    span &nbsp;&middot;&nbsp;
+    a(href=`/${repo}?skip=${next}`) older
     ul
       each c in commits
         li
