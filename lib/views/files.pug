@@ -11,6 +11,6 @@ html
       each f in files
         li
           span
-            a(href=`/-/api/${repo}/get/${f.path}?raw=true`)= f.path
+            a(href=`/${repo}/file/${encodeURIComponent(f.path)}`)= f.path
             span  &mdash;
             code= f.type
