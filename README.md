@@ -3,7 +3,7 @@
 Like GitWeb, but Node
 
 [![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn) [![Docker
-Pulls](https://img.shields.io/docker/pulls/zacanger/gwn.svg)](https://hub.docker.com/r/zacanger/gwn)
+Pulls](https://img.shields.io/docker/pulls/zacanger/gwn.svg)](https://hub.docker.com/r/zacanger/gwn) [![Patreon](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/zacanger) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U2110VB)
 
 ![screenshot](/screenshot.png?raw=true)
 
