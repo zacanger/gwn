@@ -49,6 +49,4 @@ Check out the [repo](https://hub.docker.com/r/zacanger/gwn).
 
 Some code based on [this project](https://github.com/timboudreau/gittattle).
 
-## License
-
-[MIT](./LICENSE.md)
+[LICENSE](./LICENSE.md)
