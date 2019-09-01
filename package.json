@@ -35,8 +35,8 @@
   "dependencies": {
     "compression": "1.7.4",
     "express": "4.17.1",
-    "fetchyeah": "2.2.6",
-    "helmet": "3.20.0",
+    "fetchyeah": "3.0.0",
+    "helmet": "3.20.1",
     "is-docker": "2.0.0",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.15",
@@ -44,11 +44,11 @@
     "nodemon": "1.19.1",
     "pug": "2.0.4",
     "url-parse": "1.4.7",
-    "zeelib": "10.0.5"
+    "zeelib": "11.0.0"
   },
   "devDependencies": {
-    "sortpack": "1.2.1",
-    "standard": "14.0.2",
+    "sortpack": "2.0.0",
+    "standard": "14.1.0",
     "tape": "4.11.0"
   },
   "engines": {
