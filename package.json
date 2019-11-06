@@ -1,7 +1,7 @@
 {
   "name": "gwn",
   "description": "Like GitWeb, but Node",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": {
     "email": "zac@zacanger.com",
     "name": "Zac Anger",
@@ -58,5 +58,4 @@
     "type": "ko-fi",
     "url": "https://ko-fi.com/zacanger"
   }
-
 }
