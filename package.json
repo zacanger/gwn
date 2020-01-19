@@ -42,15 +42,15 @@
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.15",
     "minimist": "1.2.0",
-    "nodemon": "2.0.1",
+    "nodemon": "2.0.2",
     "pug": "2.0.4",
     "url-parse": "1.4.7",
-    "zeelib": "11.0.5"
+    "zeelib": "11.0.6"
   },
   "devDependencies": {
     "sortpack": "2.0.4",
     "standard": "14.3.1",
-    "tape": "4.11.0"
+    "tape": "4.13.0"
   },
   "engines": {
     "node": ">=10.0.0"
