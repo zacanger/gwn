@@ -35,22 +35,22 @@
   "dependencies": {
     "compression": "1.7.4",
     "express": "4.17.1",
-    "fetchyeah": "3.0.6",
-    "helmet": "3.21.2",
+    "fetchyeah": "3.0.9",
+    "helmet": "3.21.3",
     "is-docker": "2.0.0",
-    "is-program-installed": "2.0.3",
+    "is-program-installed": "2.0.5",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.15",
-    "minimist": "1.2.2",
+    "minimist": "1.2.5",
     "nodemon": "2.0.2",
     "pug": "2.0.4",
     "url-parse": "1.4.7",
-    "zeelib": "11.0.6"
+    "zeelib": "11.0.12"
   },
   "devDependencies": {
-    "sortpack": "2.0.4",
-    "standard": "14.3.1",
-    "tape": "4.13.0"
+    "sortpack": "2.1.2",
+    "standard": "14.3.3",
+    "tape": "4.13.2"
   },
   "engines": {
     "node": ">=10.0.0"
