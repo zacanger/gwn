@@ -1,5 +1,7 @@
 # gwn
 
+DEPRECATED, use Klaus
+
 Like GitWeb, but Node
 
 [![CircleCI](https://circleci.com/gh/zacanger/gwn.svg?style=svg)](https://circleci.com/gh/zacanger/gwn) [![Docker
